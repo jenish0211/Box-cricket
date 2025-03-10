@@ -8,19 +8,25 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-600 text-white p-4 flex justify-between items-center shadow-lg">
-      <h1 className="text-xl font-bold">Box Cricket</h1>
-      <div>
-        <Link to="/products" className="mx-2 hover:underline">Products</Link>
+    <nav className="bg-blue-600 p-4 text-white">
+      <h1 className="text-2xl font-bold">Box Cricket</h1>
+      <div className="flex gap-4">
+        <Link to="/products" className="hover:text-blue-200">
+          Products
+        </Link>
         {!localStorage.getItem("token") ? (
           <>
-            <Link to="/signup" className="mx-2 hover:underline">Signup</Link>
-            <Link to="/login" className="mx-2 hover:underline">Login</Link>
+            <Link to="/signup" className="hover:text-blue-200">
+              Signup
+            </Link>
+            <Link to="/login" className="hover:text-blue-200">
+              Login
+            </Link>
           </>
         ) : (
           <button
             onClick={handleLogout}
-            className="bg-red-500 px-3 py-1 rounded hover:bg-red-600 transition"
+            className="hover:text-blue-200"
           >
             Logout
           </button>

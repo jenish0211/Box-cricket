@@ -13,7 +13,7 @@ const Products = () => {
         if (!token) return navigate("/login");
 
         const res = await axios.get("http://localhost:5000/products", {
-          headers: { Authorization: `Bearer ${token}` }
+          headers: { Authorization: `Bearer ${token}` },
         });
 
         setProducts(res.data);
@@ -26,13 +26,13 @@ const Products = () => {
   }, [navigate]);
 
   return (
-    <div className="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4 text-center">Products</h2>
-      <ul className="space-y-2">
+    <div className="p-4">
+      <h2 className="text-2xl font-bold mb-4">Products</h2>
+      <ul className="space-y-4">
         {products.map((product, index) => (
-          <li key={index} className="p-2 border rounded flex justify-between">
-            <span>{product.name}</span>
-            <span className="font-bold">${product.price}</span>
+          <li key={index} className="bg-white p-4 rounded shadow-md">
+            <span className="font-semibold">{product.name}</span>
+            <span className="text-blue-600 ml-4">${product.price}</span>
           </li>
         ))}
       </ul>
